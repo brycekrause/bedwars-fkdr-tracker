@@ -1,10 +1,5 @@
-/* get final kills
-# get final deaths
-# fkdr = fkills/fdeaths
-# round fkdr down and add 1 to get the next int
-
-# 300 requests / 5 minutes
-# expires in 24 hours*/
+// 300 requests / 5 minutes
+// expires in 24 hours
 let api_key = '6c8d67e6-45b4-4665-bcbc-35dc0ff54d3e';
 
 document.getElementById("player_name").addEventListener('keydown', function(event){
