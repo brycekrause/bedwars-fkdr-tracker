@@ -1,6 +1,5 @@
 // 300 requests / 5 minutes
 // expires in 24 hours
-let api_key = '6c8d67e6-45b4-4665-bcbc-35dc0ff54d3e';
 
 document.getElementById("player_name").addEventListener('keydown', function(event){
     if (event.key === "Enter"){
@@ -20,6 +19,7 @@ button.addEventListener('click', function(){
 
 
 async function getStats(){
+    let api_key = document.getElementById('key').value;
     // delete old instance of information if it exists
     old_data = document.getElementById("info");
     if (old_data){
