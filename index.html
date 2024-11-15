@@ -7,11 +7,17 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>FKDR Calculator</h1>
-    <p>{player name} is {final_count} finals from {next goal} FKDR</p>
-    <input type="text" placeholder="Enter player name" id="player_name">
-    <button onclick="getStats()">Go</button>
-    <p>Tracks</p>
+    <div class="container">
+        <h1>Bedwars FKDR Calculator</h1>
+        <div>
+            <input type="text" placeholder="Enter player name" id="player_name">
+            <button onclick="getStats()">Go</button>        
+        </div>
+        <div class="info">
+            <p>{player name} is {final_count} finals from {next goal} FKDR</p>
+        </div>
+    </div>
+
 
 </body>
 <script src="script.js"></script>
