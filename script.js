@@ -6,8 +6,23 @@
 # 300 requests / 5 minutes
 # expires in 24 hours*/
 let api_key = '6c8d67e6-45b4-4665-bcbc-35dc0ff54d3e';
-//let mojangurl = `https://api.mojang.com/users/profiles/minecraft/${user}`;
-//let hypixelurl = `https://api.hypixel.net/player?key=${api_key}&uuid=`;
+
+document.getElementById("player_name").addEventListener('keydown', function(event){
+    if (event.key === "Enter"){
+        document.getElementById('go_button').click();
+    }
+})
+
+button = document.getElementById("go_button");
+button.addEventListener('click', function(){
+    getStats();
+    button.disabled = true;
+
+    setTimeout(() => {
+        button.disabled = false;
+    }, 2000);
+})
+
 
 async function getStats(){
     // delete old instance of information if it exists
