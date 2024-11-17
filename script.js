@@ -17,7 +17,6 @@ button.addEventListener('click', function(){
     }, 2000);
 })
 
-
 async function getStats(){
     let api_key = document.getElementById('key').value;
     // delete old instance of information if it exists
@@ -101,6 +100,8 @@ async function getStats(){
         info_head = document.createElement('img');
         info_head.src = head;
 
+        see_more = document.createElement('button');
+
         text_div = document.createElement('div');
         text_div.appendChild(info_name);
         text_div.appendChild(info_fkdr);
@@ -108,6 +109,7 @@ async function getStats(){
 
         info_div.appendChild(text_div);
         info_div.appendChild(info_head);
+        info_div.appendChild(see_more);
         container.append(info_div);
     }catch (error){
         container = document.getElementById("container");
@@ -118,4 +120,8 @@ async function getStats(){
         container.appendChild(error_element)
 
     }
+}
+
+async function extend(){
+    
 }
