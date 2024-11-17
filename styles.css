@@ -82,3 +82,8 @@ h1{
 .info *{
     margin: auto 0px;
 }
+.info button{
+    background-color: rgb(41,41,41);
+    border: none;
+    color: white;
+}

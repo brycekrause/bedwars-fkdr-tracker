@@ -101,6 +101,7 @@ async function getStats(){
         info_head.src = head;
 
         see_more = document.createElement('button');
+        see_more.innerHTML = "See more &dArr;";
 
         text_div = document.createElement('div');
         text_div.appendChild(info_name);
