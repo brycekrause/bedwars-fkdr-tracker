@@ -60,25 +60,41 @@ async function getStats(){
         }
 
         try{
-            var fkills = hypixelData.player.stats.Bedwars.final_kills_bedwars;
+            var overall_fkills = hypixelData.player.stats.Bedwars.final_kills_bedwars;
         }
         catch(TypeError){
-            var fkills = 0;
+            var overall_fkills = 0;
         }
         try{
-            var fdeaths = hypixelData.player.stats.Bedwars.final_deaths_bedwars;
+            var overall_fdeaths = hypixelData.player.stats.Bedwars.final_deaths_bedwars;
         }
         catch(TypeError){
-            var fdeaths = 0;
+            var overall_fdeaths = 0;
         }
         try{
-            var fkdr = (fkills/fdeaths).toFixed(2);
+            var overall_fkdr = (overall_fkills/overall_fdeaths).toFixed(2);
         }
         catch(error){
-            var fkdr = fkills;
+            var overall_fkdr = overall_fkills;
         }
-        
-        
+        try{
+            var overall_wins = hypixelData.player.stats.Bedwars.wins
+        }
+        catch(error){
+            var overall_wins = 0;
+        }
+        try{
+            var overall_losses = hypixelData.player.stats.Bedwars.losses
+        }
+        catch(error){
+            var overall_losses = 0;
+        }
+        try{
+            var overall_wlr = overall_wins/overall_losses;
+        }
+        catch(error){
+            overall_wlr = overall_wins;
+        }
         let nextFKDR = Math.floor(fkdr) + 1;
         FinalsTo_nextFKDR = fdeaths * nextFKDR - fkills;
 
@@ -92,7 +108,7 @@ async function getStats(){
         info_name = document.createElement('h1');
         info_name.innerHTML = `<span>[${star}★]</span> ${ign}`;
         info_fkdr = document.createElement('h1');
-        info_fkdr.innerHTML = `<span>${fkdr}</span> FKDR`;
+        info_fkdr.innerHTML = `<span>${overall_fkdr}</span> FKDR`;
 
         info_fkdrcalc = document.createElement('h2');
         info_fkdrcalc.innerHTML = `<span>${FinalsTo_nextFKDR}</span> finals to <span>${nextFKDR}</span> FKDR`;
@@ -100,8 +116,6 @@ async function getStats(){
         info_head = document.createElement('img');
         info_head.src = head;
 
-        see_more = document.createElement('button');
-        see_more.innerHTML = "See more &dArr;";
 
         text_div = document.createElement('div');
         text_div.appendChild(info_name);
