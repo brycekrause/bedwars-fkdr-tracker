@@ -95,17 +95,23 @@ async function getStats(){
         catch(error){
             overall_wlr = overall_wins;
         }
-        let nextFKDR = Math.floor(fkdr) + 1;
+        let nextFKDR = Math.floor(overall_fkdr) + 1;
         FinalsTo_nextFKDR = fdeaths * nextFKDR - fkills;
 
         try{
             var solo_fkills = hypixelData.player.stats.Bedwars.solo_final_kills
         }
-        catch(error){var solo_fkills = 0}
+        catch(error){var solo_fkills = 0;}
         try{
             var solo_fdeaths = hypixelData.player.stats.Bedwars.solo_final_deaths
         }
-        catch(error){var solo_fdeaths = 0}
+        catch(error){var solo_fdeaths = 0;}
+        try{
+            var solo_fkdr = (solo_fkills / solo_fdeaths).toFixed(2);
+        }
+        catch(error){var solo_fkdr = solo_fkills;}
+        let solo_nextFKDR = Math.floor(solo_fkdr) + 1;
+        soloFinalsTo_nextFKDR = solo_fdeaths * solo_nextFKDR - solo_fkills;
 
         // put the data on the screen
         container = document.getElementById("container");
